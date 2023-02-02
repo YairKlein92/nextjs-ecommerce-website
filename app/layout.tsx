@@ -1,5 +1,5 @@
-import Link from 'next/link'; // I import this for the pictures -> <Link /> below
 import './global.scss';
+import Link from 'next/link'; // I import this for the pictures -> <Link /> below
 import styles from './layout.module.scss';
 
 export default function RootLayout({
@@ -13,11 +13,13 @@ export default function RootLayout({
       <body>
         <header className={styles.header}>
           <nav>
-            <div>
+            <span>
               <Link href="/">Homepage</Link>{' '}
-              {/* / means root page always, not the current page */}
-              <Link href="/comedians">Standup Comedians</Link>
-            </div>
+            </span>
+            {/* / means root page always, not the current page */}
+            <span>
+              <Link href="/comedians">Events</Link>
+            </span>
           </nav>
         </header>
         {children}

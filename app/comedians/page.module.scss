@@ -1,0 +1,78 @@
+.comedianHeader {
+  color: bisque;
+  padding-left: 45%;
+}
+
+.comedianDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+  border-radius: 12px;
+  background-image: linear-gradient(
+    45deg,
+    rgb(232, 229, 142) 0%,
+    rgb(167, 163, 72) 100%
+  );
+  &:hover {
+    background-image: linear-gradient(
+      45deg,
+      bisque 0%,
+      rgb(219, 176, 125) 100%
+    );
+    transform: scale(1.025);
+    transition: all 0.8s ease-in-out;
+  }
+  & div.icons a:hover {
+    transition: all 0.8s ease-in-out;
+    transform: scale(1.25);
+  }
+}
+.intro {
+  text-align: center;
+}
+.span {
+  color: rgb(175, 46, 64);
+  font-weight: 700;
+  &::before {
+    content: ' 😯 ';
+  }
+  &::after {
+    content: ' 😯 ';
+  }
+}
+.icons {
+  display: flex;
+  padding: 8px;
+
+  justify-content: space-between;
+  a {
+    width: '25';
+    height: '25';
+    margin: 4px;
+  }
+}
+.purchaseDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 40px;
+  span {
+    margin: 16px;
+    font-size: x-large;
+  }
+}
+.buyOneNow {
+  color: rgb(236, 228, 14);
+  background-color: chocolate;
+  padding: 8px;
+  border-radius: 18px;
+  width: 165px;
+
+  // &:hover {
+  // }
+}

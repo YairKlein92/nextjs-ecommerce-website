@@ -1,6 +1,6 @@
-import styles from './page.module.scss';
 import Image from 'next/image';
 import schulz from '../public/Andrew.webp';
+import styles from './page.module.scss';
 
 export default function HomePage() {
   return (
@@ -14,6 +14,7 @@ export default function HomePage() {
         // src="/schulz.jpg"  without the importing we need this
         width="250" // default values
         height="185"
+        alt="Andrew Schulz"
       />
     </main>
   );
