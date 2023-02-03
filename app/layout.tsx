@@ -23,7 +23,9 @@ export default function RootLayout({
           </nav>
         </header>
         {children}
-        <footer className={styles.footer}>Before and Laughter</footer>
+        <footer className={styles.footer}>
+          <Link href="/books">Before and Laughter</Link>
+        </footer>
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { NotFound } from 'next/navigation';
 import React from 'react';
 import YouTube from 'react-youtube';
-import { comedians } from '../../../database/object';
+import { comedians } from '../../../database/comedians';
 import styles from '../[standupistName]/page.module.scss';
 
 export class YoutubeVideo extends React.Component {
@@ -36,6 +36,7 @@ export default function ComedianIntroPage({ params }) {
   if (!singleComedian) {
     NotFound();
   }
+
   return (
     <div className={styles.comedianDiv}>
       <div className={styles.comedianIntro}>

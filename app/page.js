@@ -4,7 +4,7 @@ import styles from './page.module.scss';
 
 export default function HomePage() {
   return (
-    <main>
+    <main className={styles.mainDiv}>
       {/* not recommended */}
       {/* <img className={styles.image} src="/schulz.jpg" alt="Andrew Schulz" /> */}
 

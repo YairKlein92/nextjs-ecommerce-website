@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { comedians } from '../../database/object';
+import { comedians } from '../../database/comedians';
 import styles from '../comedians/page.module.scss';
 
 export default function ComediansPage() {
   return (
     <>
       {' '}
-      <h1 className={styles.comedianHeader}>Events</h1>
-      <main>
+      <h3>className={styles.comedianHeader}Events</h3>
+      <main className={styles.mainDiv}>
         {comedians.map((comedian) => {
           return (
             <div className={styles.mainDiv} key={comedian.id}>
@@ -16,6 +16,9 @@ export default function ComediansPage() {
                 <Link
                   href={`/comedians/${comedian.lastName.toLocaleLowerCase()}`}
                 >
+                  <h3 key={comedian.id}>
+                    {comedian.firstName} {comedian.lastName}
+                  </h3>
                   <Image
                     src={`/${comedian.firstName}.webp`}
                     alt={comedian.lastName}
@@ -23,14 +26,8 @@ export default function ComediansPage() {
                     height="80"
                   />
                 </Link>
+
                 <div className={styles.intro}>
-                  <Link
-                    href={`/comedians/${comedian.lastName.toLocaleLowerCase()}`}
-                  >
-                    <h2 key={comedian.id}>
-                      {comedian.firstName} {comedian.lastName}
-                    </h2>
-                  </Link>
                   <p>"{comedian.lastSpecial}" world tour</p>
                   <div className={styles.span}>09.01.2023 - 04.04.2023</div>
                   <div className={styles.span}>
