@@ -1,5 +1,3 @@
-// import fs from 'node:fs';
-
 export const comedians = [
   {
     id: 1,
@@ -11,7 +9,10 @@ export const comedians = [
     lastSpecial: 'Infamous',
     eventNumber: '4',
     ticketPriceMin: '$30',
-    link: '',
+    link: 'vpHhLk2lEmg',
+    description: '',
+    genres:
+      'observational comedy, sketch comedy, insult comedy, sarcasm, satire, improvisational comedy',
   },
   {
     id: 2,
@@ -23,7 +24,10 @@ export const comedians = [
     lastSpecial: 'Hot Forever',
     eventNumber: '6',
     ticketPriceMin: '$30',
-    link: '',
+    link: 'XCQ-vMN9b4s',
+    description: '',
+    genres:
+      'observational comedy, sketch comedy, feminist comedy, sarcasm, improvisational comedy',
   },
   {
     id: 3,
@@ -35,9 +39,10 @@ export const comedians = [
     lastSpecial: 'Tamborine',
     eventNumber: '7',
     ticketPriceMin: '$35',
-    link: '',
+    link: 'FT4Z4Blss0U',
+    description: '',
     genres:
-      'observational comedy, black comedy, sketch comedy, insult comedy, sarcasm, satire',
+      'observational comedy, black comedy, sketch comedy, insult comedy, sarcasm, satire, improvisational comedy',
   },
   {
     id: 4,
@@ -50,6 +55,7 @@ export const comedians = [
     eventNumber: '12',
     ticketPriceMin: '$45',
     link: '9PihU6Jo7ps',
+    description: '',
     genres:
       'insult comedy, heritage comedy, black comedy observational comedy, satire, improvisational comedy',
   },
@@ -64,6 +70,24 @@ export const comedians = [
     lastSpecial: 'Live at Red Rock',
     eventNumber: '3',
     ticketPriceMin: '$45',
-    link: '',
+    link: 'imZ52DHBtug',
+    description: '',
+    genres:
+      'observational comedy, sketch comedy, dark comedy, insult comedy, sarcasm, satire, improvisational comedy',
+  },
+  {
+    id: 6,
+    firstName: 'Ari',
+    lastName: 'Shaffir',
+    age: '48',
+    nationality: 'American',
+    podcast: 'Skeptic Tank',
+    lastSpecial: 'Jew',
+    eventNumber: '6',
+    ticketPriceMin: '$85',
+    link: 'VVEkelTK1fI',
+    description: '',
+    genres:
+      'observational comedy, heritage comedy, sketch comedy, insult comedy, sarcasm, satire, improvisational comedy',
   },
 ];

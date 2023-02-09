@@ -1,5 +1,6 @@
 import './global.scss';
 import Link from 'next/link'; // I import this for the pictures -> <Link /> below
+import Cookie from './cookieBanner';
 import styles from './layout.module.scss';
 
 export default function RootLayout({
@@ -11,6 +12,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body>
+        <Cookie />
         <header className={styles.header}>
           <nav>
             <span>
@@ -19,6 +21,9 @@ export default function RootLayout({
             {/* / means root page always, not the current page */}
             <span>
               <Link href="/comedians">Events</Link>
+            </span>
+            <span>
+              <Link href="/cart">Cart</Link>
             </span>
           </nav>
         </header>

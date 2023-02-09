@@ -1,18 +1,40 @@
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { comedians } from '../../database/comedians';
 import styles from '../comedians/page.module.scss';
+import ComedianIntroPage from './[standupistName]/page';
 
 export default function ComediansPage() {
+  const cookie = cookies().get('ticketCookie'); // you can check the exact name in the cookies in the browser
+  let cookieParsed = [];
+  if (cookie) {
+    cookieParsed = JSON.parse(cookie.value);
+    console.log(cookieParsed);
+  }
+
+  const ticketsInCart = comedians.map((comedian) => {
+    const ticketInCart = { ...comedian, ticketAmount: 0 };
+
+    // I read the cookie and find the comedian
+    const ticketAmountInCookie = cookieParsed.find(
+      (object) => comedian.id === object.id,
+    );
+
+    // if I find the comedian, update the ticketAmount
+    if (ticketAmountInCookie) {
+      ticketInCart.ticketAmount = ticketAmountInCookie.ticketAmount;
+    }
+    return ticketInCart;
+  });
   return (
     <>
       {' '}
-      <h3>className={styles.comedianHeader}Events</h3>
       <main className={styles.mainDiv}>
-        {comedians.map((comedian) => {
+        {ticketsInCart.map((comedian) => {
           return (
             <div className={styles.mainDiv} key={comedian.id}>
-              <div className={styles.comedianDiv} display="flex">
+              <div className={styles.comedianDiv}>
                 <Link
                   href={`/comedians/${comedian.lastName.toLocaleLowerCase()}`}
                 >
@@ -33,6 +55,9 @@ export default function ComediansPage() {
                   <div className={styles.span}>
                     {' '}
                     {comedian.eventNumber} events in Vienna
+                  </div>
+                  <div className={styles.span}>
+                    Tickets:{comedian.ticketAmount}
                   </div>
                 </div>
                 <div className={styles.icons}>
@@ -66,7 +91,9 @@ export default function ComediansPage() {
                 </div>
                 <div className={styles.purchaseDiv}>
                   <span>Tickets from {comedian.ticketPriceMin}</span>
-                  <a href="/">
+                  <a
+                    href={`/comedians/${comedian.lastName.toLocaleLowerCase()}`}
+                  >
                     <span className={styles.buyOneNow}>Buy one now!</span>
                   </a>
                 </div>

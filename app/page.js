@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { comedians } from '../database/comedians';
 import schulz from '../public/Andrew.webp';
 import styles from './page.module.scss';
 
-export default function HomePage() {
+export default function HomePage(props) {
+  console.log(props);
   return (
     <main className={styles.mainDiv}>
       {/* not recommended */}
