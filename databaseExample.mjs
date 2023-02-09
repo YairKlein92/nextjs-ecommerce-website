@@ -8,7 +8,7 @@ const sql = postgres(); // because of config() we don't need any info here
 
 console.log(
   await sql`
-  SELECT * FROM tickets
+  SELECT * FROM comedians
   `,
 );
 await sql.end();

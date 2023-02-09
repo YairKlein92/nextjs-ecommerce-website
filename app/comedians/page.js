@@ -1,11 +1,12 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
-import { comedians } from '../../database/comedians';
+import { getComedians } from '../../database/comedians';
 import styles from '../comedians/page.module.scss';
-import ComedianIntroPage from './[standupistName]/page';
+import ComedianIntroPage from './[standupistId]/page';
 
-export default function ComediansPage() {
+export default async function ComediansPage() {
+  const comedians = await getComedians(); // it is an asynchronous function
   const cookie = cookies().get('ticketCookie'); // you can check the exact name in the cookies in the browser
   let cookieParsed = [];
   if (cookie) {
@@ -35,9 +36,7 @@ export default function ComediansPage() {
           return (
             <div className={styles.mainDiv} key={comedian.id}>
               <div className={styles.comedianDiv}>
-                <Link
-                  href={`/comedians/${comedian.lastName.toLocaleLowerCase()}`}
-                >
+                <Link href={`/comedians/${comedian.id}`}>
                   <h3 key={comedian.id}>
                     {comedian.firstName} {comedian.lastName}
                   </h3>
@@ -91,9 +90,7 @@ export default function ComediansPage() {
                 </div>
                 <div className={styles.purchaseDiv}>
                   <span>Tickets from {comedian.ticketPriceMin}</span>
-                  <a
-                    href={`/comedians/${comedian.lastName.toLocaleLowerCase()}`}
-                  >
+                  <a href={`/comedians/${comedian.id}`}>
                     <span className={styles.buyOneNow}>Buy one now!</span>
                   </a>
                 </div>

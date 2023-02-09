@@ -3,8 +3,7 @@ import { comedians } from '../database/comedians';
 import schulz from '../public/Andrew.webp';
 import styles from './page.module.scss';
 
-export default function HomePage(props) {
-  console.log(props);
+export default function HomePage() {
   return (
     <main className={styles.mainDiv}>
       {/* not recommended */}

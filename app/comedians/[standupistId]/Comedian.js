@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import YouTube from 'react-youtube';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
-import styles from '../[standupistName]/page.module.scss';
+import styles from '../[standupistId]/page.module.scss';
 
 export class YoutubeVideo extends React.Component {
   render() {
