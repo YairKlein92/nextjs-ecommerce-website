@@ -39,8 +39,6 @@
   perspective: 150rem;
   width: 280px;
   height: 430px;
-  border: 1px solid red;
-  transition: all 0.35s;
   &:hover .comedianDivFront {
     transform: rotateY(180deg);
   }
@@ -53,17 +51,16 @@
     position: absolute;
     top: 0;
     left: 0;
-    border: 2px dotted brown;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 280px;
     backface-visibility: hidden;
     height: 430px;
     border-radius: 12px;
-    transition: all 0.8s;
+    transition: all 1.4s;
     background-image: linear-gradient(
       60deg,
       rgb(90, 174, 174) 0%,
@@ -94,6 +91,11 @@
     &:hover {
     }
   }
+}
+.genresDiv {
+  text-align: center;
+  padding: 32px;
+  margin-bottom: 22px;
 }
 
 .intro {

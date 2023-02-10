@@ -48,8 +48,8 @@ export default async function ComediansPage() {
                   <Image
                     src={`/${comedian.firstName}.webp`}
                     alt={comedian.lastName}
-                    width="112"
-                    height="80"
+                    width="224"
+                    height="160"
                   />
                   {/* </Link> */}
 
@@ -63,6 +63,20 @@ export default async function ComediansPage() {
                     <div className={styles.span}>
                       Tickets:{comedian.ticketAmount}
                     </div>
+                  </div>
+                </div>
+                <div
+                  className={`${styles.comedianDiv} ${styles.comedianDivBack}`}
+                >
+                  <div className={styles.purchaseDiv}>
+                    <span>Tickets from {comedian.ticketPriceMin}</span>
+                    <div className={styles.genresDiv}>
+                      If you like:
+                      <br /> {comedian.genres}
+                    </div>
+                    <a href={`/comedians/${comedian.id}`}>
+                      <span className={styles.buyOneNow}>Buy one now!</span>
+                    </a>
                   </div>
                   <div className={styles.icons}>
                     <a href="/cart">
@@ -93,18 +107,6 @@ export default async function ComediansPage() {
                       />
                     </a>
                   </div>
-                  <div className={styles.purchaseDiv}>
-                    <span>Tickets from {comedian.ticketPriceMin}</span>
-                    <a href={`/comedians/${comedian.id}`}>
-                      <span className={styles.buyOneNow}>Buy one now!</span>
-                    </a>
-                  </div>
-                </div>
-                <div
-                  className={`${styles.comedianDiv} ${styles.comedianDivBack}`}
-                >
-                  {' '}
-                  TEXT
                 </div>
               </div>
             </div>
