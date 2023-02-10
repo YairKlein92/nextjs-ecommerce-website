@@ -30,23 +30,25 @@ export default async function ComediansPage() {
   });
   return (
     <>
-      {' '}
+      <div className={styles.centerText}>
+        <h2 className={styles.heading}>Upcoming events</h2>
+      </div>
       <main className={styles.mainDiv}>
         {ticketsInCart.map((comedian) => {
           return (
             <div className={styles.mainDiv} key={comedian.id}>
               <div className={styles.comedianDiv}>
-                <Link href={`/comedians/${comedian.id}`}>
-                  <h3 key={comedian.id}>
-                    {comedian.firstName} {comedian.lastName}
-                  </h3>
-                  <Image
-                    src={`/${comedian.firstName}.webp`}
-                    alt={comedian.lastName}
-                    width="112"
-                    height="80"
-                  />
-                </Link>
+                {/* <Link href={`/comedians/${comedian.id}`}> */}
+                <h3 key={comedian.id}>
+                  {comedian.firstName} {comedian.lastName}
+                </h3>
+                <Image
+                  src={`/${comedian.firstName}.webp`}
+                  alt={comedian.lastName}
+                  width="112"
+                  height="80"
+                />
+                {/* </Link> */}
 
                 <div className={styles.intro}>
                   <p>"{comedian.lastSpecial}" world tour</p>
@@ -60,7 +62,7 @@ export default async function ComediansPage() {
                   </div>
                 </div>
                 <div className={styles.icons}>
-                  <a href="/">
+                  <a href="/cart">
                     <Image
                       src="/save.png"
                       alt="Save to your computer"
@@ -69,7 +71,7 @@ export default async function ComediansPage() {
                       height="25"
                     />
                   </a>
-                  <a href="/">
+                  <a href="/cart">
                     <Image
                       src="/phone.png"
                       alt="Download to your mobile device"
@@ -78,7 +80,7 @@ export default async function ComediansPage() {
                       height="25"
                     />
                   </a>
-                  <a href="/">
+                  <a href="/cart">
                     <Image
                       src="/print.png"
                       alt="Print it out"
