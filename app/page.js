@@ -22,7 +22,7 @@ export default function HomePage() {
         </div>
         <div className={styles.imageDiv}>
           <Image
-            className={styles.imageSchulz}
+            className={`${styles.image} ${styles.imageSchulz}`}
             src={schulz} // for import we need ../ for some reason
             // src="/schulz.jpg"  without the importing we need this
             width="250" // default values
@@ -30,7 +30,7 @@ export default function HomePage() {
             alt="Andrew Schulz"
           />
           <Image
-            className={styles.imageAri}
+            className={`${styles.image} ${styles.imageAri}`}
             src={ari} // for import we need ../ for some reason
             // src="/schulz.jpg"  without the importing we need this
             width="250" // default values
@@ -38,7 +38,7 @@ export default function HomePage() {
             alt="Andrew Schulz"
           />
           <Image
-            className={styles.imageIliza}
+            className={`${styles.image} ${styles.imageIliza}`}
             src={iliza} // for import we need ../ for some reason
             // src="/schulz.jpg"  without the importing we need this
             width="250" // default values

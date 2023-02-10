@@ -40,7 +40,7 @@
   width: 280px;
   height: 430px;
   &:hover .comedianDivFront {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
   &:hover .comedianDivBack {
     transform: rotateY(0deg); //almost works
@@ -96,6 +96,7 @@
   text-align: center;
   padding: 32px;
   margin-bottom: 22px;
+  font-weight: 600;
 }
 
 .intro {
