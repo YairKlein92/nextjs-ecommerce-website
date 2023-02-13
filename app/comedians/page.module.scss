@@ -19,7 +19,7 @@
     rgb(90, 174, 174) 0%,
     rgb(95, 244, 244) 100%
   );
-  -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   transition: all 0.3s;
   &:hover {

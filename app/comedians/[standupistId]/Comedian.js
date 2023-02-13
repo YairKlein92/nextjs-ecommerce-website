@@ -52,7 +52,7 @@ export default function Comedian(props) {
           . His last special is called {props.comedian.lastSpecial}. <br />
           Now you have the opportunity to choose from one of the{' '}
           {props.comedian.eventNumber} standup comedy nights in Vienna to watch
-          it in real life!
+          it in real life only in Vienna on {props.comedian.date}!
           <button
             onClick={() => {
               const ticketCookie = getParsedCookie('ticketCookie');

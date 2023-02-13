@@ -16,3 +16,7 @@ VALUES
 --Getting the data
 
 SELECT * FROM books
+
+UPDATE comedians
+SET ticket_price_min = 85
+WHERE id = 6;
