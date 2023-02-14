@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { comedians } from '../database/comedians';
 import schulz from '../public/Andrew.webp';
 import ari from '../public/Ari.webp';
 import iliza from '../public/Iliza.webp';

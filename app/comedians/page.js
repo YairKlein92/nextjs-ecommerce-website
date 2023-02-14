@@ -1,9 +1,7 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
-import Link from 'next/link';
 import { getComedians } from '../../database/comedians';
 import styles from '../comedians/page.module.scss';
-import ComedianIntroPage from './[standupistId]/page';
 
 export default async function ComediansPage() {
   const comedians = await getComedians(); // it is an asynchronous function

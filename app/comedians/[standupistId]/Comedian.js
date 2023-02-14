@@ -80,7 +80,7 @@ export default function Comedian(props) {
               setStringifiedCookie('ticketCookie', ticketCookie);
             }}
           >
-            +
+            Add a ticket
           </button>
           <button
             onClick={() => {
@@ -105,7 +105,7 @@ export default function Comedian(props) {
               setStringifiedCookie('ticketCookie', ticketCookie);
             }}
           >
-            -
+            Remove a ticket
           </button>
         </div>
       </div>

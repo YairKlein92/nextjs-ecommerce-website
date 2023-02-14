@@ -78,19 +78,11 @@
       transform: scale(1.25);
     }
   }
-  .comedianDivFront {
-    // == card__side--front    try &Font
-    &:hover {
-      // card side front
-    }
-  }
 
   .comedianDivBack {
     // == card__side--back   &Back
     background-color: green;
     transform: rotateY(180deg);
-    &:hover {
-    }
   }
 }
 .genresDiv {

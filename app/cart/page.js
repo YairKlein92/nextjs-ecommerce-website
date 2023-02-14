@@ -27,6 +27,17 @@ export default async function Cart() {
     }
     return ticketInCart;
   });
+
+  // creating a sum array for storing the prices
+  const sum = [];
+  // adding the amounts to the array
+  ticketsInCart.map((comedian) => {
+    sum.push(Number(comedian.ticketPriceMin) * Number(comedian.ticketAmount));
+    console.log(sum);
+    return sum;
+  });
+  // adding the prices to get the final price of all the tickets
+  const finalSum = sum.reduce((acc, curr) => acc + curr, 0);
   return (
     <>
       <div className={styles.centerText}>
@@ -105,11 +116,16 @@ export default async function Cart() {
         <div className={styles.heading}>Summary</div>
         {ticketsInCart.map((comedian) => {
           return comedian.ticketAmount > 0 ? (
-            <div key={comedian.id}>Hello {comedian.firstName}</div>
+            <div key={comedian.id}>
+              {comedian.ticketAmount} ticket/s for{' '}
+              <span>{comedian.lastSpecial}</span> - $
+              {Number(comedian.ticketAmount) * Number(comedian.ticketPriceMin)}
+            </div>
           ) : (
             ''
           );
         })}
+        <div>Sum: ${finalSum}</div>
       </div>
     </>
   );
