@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 import YouTube from 'react-youtube';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 import styles from '../[standupistId]/page.module.scss';
@@ -30,7 +30,7 @@ export class YoutubeVideo extends React.Component {
 
 export default function Comedian(props) {
   const router = useRouter();
-
+  const [count, setCount] = useState(1);
   return (
     <>
       <h1>Event</h1>
@@ -58,62 +58,84 @@ export default function Comedian(props) {
             Now you have the opportunity to choose from one of the{' '}
             {props.comedian.eventNumber} standup comedy nights in Vienna to
             watch it in real life only in Vienna on {props.comedian.date}!
-            <button
-              onClick={() => {
-                const ticketCookie = getParsedCookie('ticketCookie');
-                // if cookie doesn't exist we initialize the value with 1
-                if (!ticketCookie) {
-                  setStringifiedCookie('ticketCookie', [
-                    { id: props.comedian.id, ticketAmount: 1 },
-                  ]);
-                  // if there's no cookie function stop here
-                  return;
-                }
-                const foundTicket = ticketCookie.find((cookie) => {
-                  return cookie.id === props.comedian.id;
-                });
-                // if ticket is inside the cookie
-                if (foundTicket) {
-                  foundTicket.ticketAmount++;
-                } else {
-                  ticketCookie.push({
-                    id: props.comedian.id,
-                    ticketAmount: 1,
-                  });
-                }
-                // update the cookie
-                setStringifiedCookie('ticketCookie', ticketCookie);
-                router.refresh();
-              }}
-            >
-              Add a ticket
-            </button>
-            <button
-              onClick={() => {
-                const ticketCookie = getParsedCookie('ticketCookie');
-                // if cookie doesn't exist we initialize the value with 1
-                if (!ticketCookie) {
-                  return;
-                }
-                const foundTicket = ticketCookie.find((cookie) => {
-                  return cookie.id === props.comedian.id;
-                });
-                // if ticket is inside the cookie
-                if (foundTicket) {
-                  foundTicket.ticketAmount--;
-                  if (foundTicket.ticketAmount < 0) {
-                    foundTicket.ticketAmount = 0;
+            <div>
+              <input
+                defaultValue={count}
+                data-test-id="product-quantity"
+                onChange={(event) => {
+                  setCount(event.currentTarget.value);
+                }}
+              />
+              <button
+                onClick={() => {
+                  if (count <= 1) {
+                    setCount(1);
+                  } else {
+                    setCount(count + 1);
                   }
-                } else {
-                  return;
-                }
-                // update the cookie
-                setStringifiedCookie('ticketCookie', ticketCookie);
-                router.refresh();
-              }}
-            >
-              Remove a ticket
-            </button>
+                }}
+              >
+                Add a ticket
+              </button>
+              <button
+                onClick={() => {
+                  const ticketCookie = getParsedCookie('ticketCookie');
+                  // if cookie doesn't exist we initialize the value with 1
+                  if (!ticketCookie) {
+                    return;
+                  }
+                  const foundTicket = ticketCookie.find((cookie) => {
+                    return cookie.id === props.comedian.id;
+                  });
+                  // if ticket is inside the cookie
+                  if (foundTicket) {
+                    foundTicket.ticketAmount--;
+                    if (foundTicket.ticketAmount < 0) {
+                      foundTicket.ticketAmount = 0;
+                    }
+                  } else {
+                    return;
+                  }
+                  // update the cookie
+                  setStringifiedCookie('ticketCookie', ticketCookie);
+                  router.refresh();
+                }}
+              >
+                Remove a ticket
+              </button>
+              <button
+                data-test-id="product-add-to-cart"
+                onClick={() => {
+                  const ticketCookie = getParsedCookie('ticketCookie');
+
+                  if (!ticketCookie) {
+                    setStringifiedCookie('ticketCookie', [
+                      { id: props.comedian.id, ticketAmount: 1 },
+                    ]);
+                    return; // if there is no cookie function stop here
+                  }
+
+                  const foundTicket = ticketCookie.find((cookie) => {
+                    return cookie.id === props.comedian.id;
+                  });
+
+                  if (foundTicket) {
+                    foundTicket.ticketAmount += count;
+                  } else {
+                    ticketCookie.push({
+                      id: props.comedian.id,
+                      ticketAmount: count,
+                    });
+                  }
+
+                  setStringifiedCookie('ticketCookie', ticketCookie);
+                  setCount(1);
+                  router.refresh();
+                }}
+              >
+                Add to cart
+              </button>
+            </div>
           </div>
         </div>
         <div>
