@@ -9,7 +9,7 @@ export async function up(sql) {
   podcast varchar(50),
   last_special varchar(25),
   event_number varchar(2),
-  ticket_price_min numeric(5, 2) NOT NULL,
+  ticket_price_min varchar(3) NOT NULL,
   link varchar(15),
   description varchar(2000),
   genres varchar(2000)

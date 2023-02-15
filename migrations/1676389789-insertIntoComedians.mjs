@@ -35,13 +35,14 @@ const comedians = [
     last_name: 'Rock',
     age: '57',
     nationality: 'American',
-    podcast: undefined,
+    podcast: '',
     last_special: 'Tamborine',
     event_number: '1',
     ticket_price_min: 35,
     link: 'FT4Z4Blss0U',
     description: '',
-    genres: 'FT4Z4Blss0U',
+    genres:
+      'observational comedy, black comedy, sketch comedy, insult comedy, sarcasm, satire, improvisational comedy',
   },
 
   {
@@ -50,7 +51,7 @@ const comedians = [
     last_name: 'Peters',
     age: '52',
     nationality: 'Canadian',
-    podcast: undefined,
+    podcast: '',
     last_special: 'Act Your Age',
     event_number: '1',
     ticket_price_min: 45,
@@ -61,7 +62,7 @@ const comedians = [
   },
   {
     id: 5,
-    first_name: 'Bull',
+    first_name: 'Bill',
     last_name: 'Burr',
     age: '54',
     nationality: 'American',
@@ -97,8 +98,8 @@ export async function up(sql) {
 INSERT INTO comedians
 ${sql(
   comedians,
-  'firstName',
-  'lastName',
+  'first_name',
+  'last_name',
   'age',
   'nationality',
   'podcast',
@@ -109,8 +110,6 @@ ${sql(
   'description',
   'genres',
 )}
-VALUES
-()
 `;
 }
 
@@ -120,7 +119,7 @@ export async function down(sql) {
     DELETE FROM
     comedians
     WHERE
-    last_name = ${comedian.last_name}
+    id = ${comedian.id}
     `;
   }
 }

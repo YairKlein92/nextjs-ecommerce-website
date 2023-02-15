@@ -1,6 +1,5 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
-import Link from 'next/link';
 import { getComedians } from '../../database/comedians';
 import styles from '../cart/page.module.scss';
 
@@ -61,7 +60,6 @@ export default async function Cart() {
                     width="224"
                     height="160"
                   />
-                  {/* </Link> */}
 
                   <div className={styles.intro}>
                     <p>"{comedian.lastSpecial}" world tour</p>
@@ -126,6 +124,9 @@ export default async function Cart() {
           );
         })}
         <div>Sum: ${finalSum}</div>
+        <a href="/cart/checkout">
+          <button>Checkout</button>
+        </a>
       </div>
     </>
   );
