@@ -64,28 +64,28 @@
 //         />
 
 // onclick for minus button:
-onClick={() => {
-  const ticketCookie = getParsedCookie('ticketCookie');
-  // if cookie doesn't exist we initialize the value with 1
-  if (!ticketCookie) {
-    return;
-  }
-  const foundTicket = ticketCookie.find((cookie) => {
-    return cookie.id === props.comedian.id;
-  });
-  // if ticket is inside the cookie
-  if (foundTicket) {
-    foundTicket.ticketAmount--;
-    if (foundTicket.ticketAmount < 0) {
-      foundTicket.ticketAmount = 0;
-    }
-  } else {
-    return;
-  }
-  // update the cookie
-  setStringifiedCookie('ticketCookie', ticketCookie);
-  router.refresh();
-}}
+// onClick={() => {
+//   const ticketCookie = getParsedCookie('ticketCookie');
+//   // if cookie doesn't exist we initialize the value with 1
+//   if (!ticketCookie) {
+//     return;
+//   }
+//   const foundTicket = ticketCookie.find((cookie) => {
+//     return cookie.id === props.comedian.id;
+//   });
+//   // if ticket is inside the cookie
+//   if (foundTicket) {
+//     foundTicket.ticketAmount--;
+//     if (foundTicket.ticketAmount < 0) {
+//       foundTicket.ticketAmount = 0;
+//     }
+//   } else {
+//     return;
+//   }
+//   // update the cookie
+//   setStringifiedCookie('ticketCookie', ticketCookie);
+//   router.refresh();
+// }}
 
 // onclick for plus button
 // onClick={() => {

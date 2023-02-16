@@ -10,11 +10,25 @@ export default function HomePage() {
       {/* not recommended */}
       {/* <img className={styles.image} src="/schulz.jpg" alt="Andrew Schulz" /> */}
       <div className={styles.centerText}>
-        <h2 className={styles.heading}>About our comedy club</h2>
+        <h1 className={styles.heading}>About our comedy club</h1>
       </div>
       <div className={styles.flexDiv}>
         <div className={styles.textDiv}>
           <h3>Main DIV</h3>
+          <div>
+            Comedy is a fundamental aspect of human nature, and it serves an
+            important social function in our lives. Humor allows us to see the
+            world from a different perspective, to question our assumptions and
+            beliefs, and to build relationships with others through shared
+            laughter. However, comedy can also be a double-edged sword, as it
+            has the potential to reinforce negative stereotypes and perpetuate
+            harmful attitudes. It's important to be mindful of the impact that
+            humor can have on ourselves and others, and to use it responsibly
+            and ethically. By cultivating a sense of humor that is grounded in
+            compassion, understanding, and self-awareness, we can harness the
+            power of comedy to improve our own lives and the lives of those
+            around us.
+          </div>
           <a href="/comedians" className={styles.button}>
             Check our events &rarr;
           </a>

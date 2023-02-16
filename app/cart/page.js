@@ -24,6 +24,7 @@ export default async function Cart() {
     if (ticketAmountInCookie) {
       ticketInCart.ticketAmount = ticketAmountInCookie.ticketAmount;
     }
+    console.log(ticketInCart);
     return ticketInCart;
   });
 
@@ -65,8 +66,12 @@ export default async function Cart() {
                     <p>"{comedian.lastSpecial}" world tour</p>
 
                     <div className={styles.span}>
-                      Tickets in your cart: {comedian.ticketAmount}
+                      Tickets in your cart:{' '}
+                      <span data-test-id={`ticket-number-id-${comedian.id}`}>
+                        {comedian.ticketAmount}
+                      </span>
                     </div>
+                    <button>Remove from cart</button>
                   </div>
                 </div>
                 <div

@@ -58,9 +58,9 @@ export default async function ComediansPage() {
                       {' '}
                       {comedian.eventNumber} events in Vienna
                     </div>
-                    <div className={styles.span}>
+                    <span className={styles.span}>
                       Tickets:{comedian.ticketAmount}
-                    </div>
+                    </span>
                   </div>
                 </div>
                 <div

@@ -63,16 +63,35 @@ export default function Comedian(props) {
                 defaultValue={count}
                 data-test-id="product-quantity"
                 onChange={(event) => {
-                  setCount(event.currentTarget.value);
+                  setCount(Number(event.currentTarget.value));
                 }}
               />
               <button
                 onClick={() => {
-                  if (count <= 1) {
-                    setCount(1);
-                  } else {
-                    setCount(count + 1);
+                  const ticketCookie = getParsedCookie('ticketCookie');
+                  // if cookie doesn't exist we initialize the value with 1
+                  if (!ticketCookie) {
+                    setStringifiedCookie('ticketCookie', [
+                      { id: props.comedian.id, ticketAmount: 1 },
+                    ]);
+                    // if there's no cookie function stop here
+                    return;
                   }
+                  const foundTicket = ticketCookie.find((cookie) => {
+                    return cookie.id === props.comedian.id;
+                  });
+                  // if ticket is inside the cookie
+                  if (foundTicket) {
+                    foundTicket.ticketAmount++;
+                  } else {
+                    ticketCookie.push({
+                      id: props.comedian.id,
+                      ticketAmount: 1,
+                    });
+                  }
+                  // update the cookie
+                  setStringifiedCookie('ticketCookie', ticketCookie);
+                  router.refresh();
                 }}
               >
                 Add a ticket
