@@ -1,38 +1,82 @@
 // .mainDiv {
 // }
 
+// relates to all the divs inside the main section
 .comedianDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 145px;
-  align-items: center;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: center;
+  // gap: 135px;
+  // align-items: center;
   padding: 28px;
 }
-
+.heading {
+  text-align: center;
+  margin-top: 36px;
+  background-image: linear-gradient(135deg, #4e4e4e 0%, #868585 100%);
+  background-clip: text;
+  color: transparent;
+}
+.comedianText {
+  display: flex;
+  justify-content: space-around;
+  width: 1400px;
+  margin-bottom: 12px;
+}
 .comedianIntro {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
-  font-weight: 600;
+  // align-items: center;
+  font-weight: 700;
+  font-size: large;
+  text-align: center;
   border-radius: 24px;
-  width: 480px;
-  padding: 48px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  background-image: linear-gradient(45deg, bisque 0%, rgb(219, 176, 125) 100%);
-  img {
-    border-radius: 24px;
-  }
+  height: 480px;
+}
+.comedianNameHeader {
+  color: #3f3d56;
 }
 .paragraphDiv {
   width: 360px;
+  font-size: smaller;
+  color: #5c6170;
 }
-.emoji {
+.buttonDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+}
+.buttons {
+  display: block;
+  width: 50%;
   margin: 6px;
+  background-color: transparent;
+  font-size: 16px;
+  color: #333333;
+  border: none; // deletes the button's default border
+  border-bottom: 1px solid #333333;
+  padding: 4px;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #333333;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0.5rem 0.5rem 0.5rem #c2c2c2;
+    transform: translateY(0); // click effect
+  }
 }
-.buyMore {
-  font-size: x-large;
-  font-weight: 600;
+.inputField {
+  background-color: #b3b3b3;
+  border: none;
+  color: inherit;
+  width: 10%;
+  text-align: center;
+  outline: none;
+  margin: 12px;
 }

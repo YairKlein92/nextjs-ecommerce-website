@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getComedians } from '../../database/comedians';
 import styles from '../cart/page.module.scss';
+import Button from './button';
 
 export default async function Cart() {
   const comedians = await getComedians(); // it is an asynchronous function
@@ -9,7 +10,6 @@ export default async function Cart() {
   let cookieParsed = [];
   if (cookie) {
     cookieParsed = JSON.parse(cookie.value);
-    console.log(cookieParsed);
   }
 
   const ticketsInCart = comedians.map((comedian) => {
@@ -24,7 +24,6 @@ export default async function Cart() {
     if (ticketAmountInCookie) {
       ticketInCart.ticketAmount = ticketAmountInCookie.ticketAmount;
     }
-    console.log(ticketInCart);
     return ticketInCart;
   });
 
@@ -33,7 +32,7 @@ export default async function Cart() {
   // adding the amounts to the array
   ticketsInCart.map((comedian) => {
     sum.push(Number(comedian.ticketPriceMin) * Number(comedian.ticketAmount));
-    console.log(sum);
+    // console.log(sum);
     return sum;
   });
   // adding the prices to get the final price of all the tickets
@@ -71,7 +70,6 @@ export default async function Cart() {
                         {comedian.ticketAmount}
                       </span>
                     </div>
-                    <button>Remove from cart</button>
                   </div>
                 </div>
                 <div
@@ -114,25 +112,26 @@ export default async function Cart() {
             </div>
           );
         })}
-      </main>{' '}
+      </main>
+      <div className={styles.heading}>Summary</div>
       <div className={styles.cartDiv}>
-        <div className={styles.heading}>Summary</div>
         {ticketsInCart.map((comedian) => {
           return comedian.ticketAmount > 0 ? (
             <div key={comedian.id}>
               {comedian.ticketAmount} ticket/s for{' '}
               <span>{comedian.lastSpecial}</span> - $
               {Number(comedian.ticketAmount) * Number(comedian.ticketPriceMin)}
+              <Button comedians={comedians} cookieParsed={cookieParsed} />
             </div>
           ) : (
             ''
           );
         })}
         <div>Sum: ${finalSum}</div>
-        <a href="/cart/checkout">
-          <button>Checkout</button>
-        </a>
-      </div>
+      </div>{' '}
+      <a href="/cart/checkout">
+        <button>Checkout</button>
+      </a>
     </>
   );
 }

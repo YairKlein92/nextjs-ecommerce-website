@@ -46,18 +46,15 @@ export default async function ComediansPage() {
                   <Image
                     src={`/${comedian.firstName}.webp`}
                     alt={comedian.lastName}
-                    width="224"
-                    height="160"
+                    width="156"
+                    height="111"
                   />
                   {/* </Link> */}
 
                   <div className={styles.intro}>
                     <p>"{comedian.lastSpecial}" world tour</p>
                     <div className={styles.span}>09.01.2023 - 04.04.2023</div>
-                    <div className={styles.span}>
-                      {' '}
-                      {comedian.eventNumber} events in Vienna
-                    </div>
+                    <div className={styles.span}> ONLY in Vienna</div>
                     <span className={styles.span}>
                       Tickets:{comedian.ticketAmount}
                     </span>

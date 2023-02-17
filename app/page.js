@@ -14,20 +14,17 @@ export default function HomePage() {
       </div>
       <div className={styles.flexDiv}>
         <div className={styles.textDiv}>
-          <h3>Main DIV</h3>
-          <div>
-            Comedy is a fundamental aspect of human nature, and it serves an
-            important social function in our lives. Humor allows us to see the
-            world from a different perspective, to question our assumptions and
-            beliefs, and to build relationships with others through shared
-            laughter. However, comedy can also be a double-edged sword, as it
-            has the potential to reinforce negative stereotypes and perpetuate
-            harmful attitudes. It's important to be mindful of the impact that
-            humor can have on ourselves and others, and to use it responsibly
-            and ethically. By cultivating a sense of humor that is grounded in
-            compassion, understanding, and self-awareness, we can harness the
-            power of comedy to improve our own lives and the lives of those
-            around us.
+          <h3 className={styles.paragraphHeading}>Main DIV</h3>
+          <div className={styles.introDiv}>
+            Get ready to laugh until your cheeks hurt! Our standup comedians are
+            the experts in tickling your funny bone with their witty jokes and
+            hilarious observations. It's like a non-stop rollercoaster of
+            giggles, where you'll find yourself gasping for air between belly
+            laughs. Our comedians will take you on a journey of absurdity and
+            sarcasm, leaving you in stitches and wanting more. So, come join us
+            for a night of unforgettable comedy, where the only thing funnier
+            than our comedians is the look on your face when you realize you've
+            been laughing for hours!{' '}
           </div>
           <a href="/comedians" className={styles.button}>
             Check our events &rarr;

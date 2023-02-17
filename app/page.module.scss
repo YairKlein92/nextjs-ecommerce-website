@@ -1,24 +1,20 @@
 .mainDiv {
   margin: 0 0 0;
-  // border: 1px solid red;
-  height: 67.55vh;
-  width: 200vh; // this need to be fixed
+  height: 518px;
+  width: 1400px; // this needs to be fixed
+  padding: 0;
 }
 .flexDiv {
   display: flex;
   justify-content: space-around;
 }
 .heading {
-  margin: 6rem 0;
+  margin: 4rem 0;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.5px;
-  background-image: linear-gradient(
-    60deg,
-    rgb(90, 174, 174) 0%,
-    rgb(95, 244, 244) 100%
-  );
-  -webkit-background-clip: text;
+  background-image: linear-gradient(135deg, #4e4e4e 0%, #868585 100%);
+  background-clip: text;
   color: transparent;
   transition: all 0.3s;
   &:hover {
@@ -29,24 +25,27 @@
 .centerText {
   text-align: center;
 }
+.paragraphHeading {
+  color: #3f3d56;
+}
+.introDiv {
+  width: 480px;
+  color: #5c6170;
+} //3f3d56 5c6170
 .button {
-  &:link,
-  &:visited {
-    font-size: 16px;
-    color: rgb(71, 138, 138);
-    display: inline-block;
-    border-bottom: 1px solid rgb(90, 174, 174);
-    padding: 4px;
-    transition: all 0.3s;
-  }
+  font-size: 16px;
+  color: #333333;
+  display: inline-block;
+  border-bottom: 1px solid #333333;
+  padding: 4px;
+  transition: all 0.3s;
   &:hover {
-    background-color: rgb(71, 138, 138);
-    color: beige;
-    text-shadow: 1rem 1rem 2rem black;
-    transform: translateY(-2px); // go-up effect
+    background: #333333;
+    color: #ffffff;
+    transform: translateY(-2px);
   }
   &:active {
-    box-shadow: 0.5rem 0.5rem 0.5rem black;
+    box-shadow: 0.5rem 0.5rem 0.5rem #c2c2c2;
     transform: translateY(0); // click effect
   }
 }
@@ -61,7 +60,7 @@
     filter: blur(0.7px);
     cursor: grab;
     &:hover {
-      outline: 1rem solid rgb(71, 138, 138);
+      outline: 1rem solid #383636;
       filter: blur(0);
       transform: scale(1.05);
       box-shadow: 0 2.5rem 4rem black;

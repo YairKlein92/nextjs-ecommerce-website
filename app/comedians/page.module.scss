@@ -14,11 +14,7 @@
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.5px;
-  background-image: linear-gradient(
-    60deg,
-    rgb(90, 174, 174) 0%,
-    rgb(95, 244, 244) 100%
-  );
+  background-image: linear-gradient(135deg, #4e4e4e 0%, #868585 100%);
   background-clip: text;
   color: transparent;
   transition: all 0.3s;
@@ -34,12 +30,12 @@
   padding-left: 45%;
 }
 .comedianDivCard {
-  margin: 0 72px 24px;
+  margin: 0 48px;
   position: relative;
   // == .card div of both div elements
   perspective: 150rem;
-  width: 280px;
-  height: 430px;
+  width: 300px;
+  height: 460px;
   &:hover .comedianDivFront {
     transform: rotateY(-180deg);
   }
@@ -57,18 +53,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 280px;
+    width: 320px;
     backface-visibility: hidden;
-    height: 430px;
+    height: 330px;
     border-radius: 12px;
     transition: all 1.4s;
-    background-image: linear-gradient(
-      60deg,
-      rgb(90, 174, 174) 0%,
-      rgb(95, 244, 244) 100%
-    );
-    box-shadow: rgba(50, 50, 93, 0.4) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.8) 0px 18px 36px -18px inset;
+    background: linear-gradient(135deg, #7d7d7d 0%, #5a5a5a 100%);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+    color: #ffe4c4;
     &:hover .comedianDivBack {
       transform: rotateY(180deg); // rotating around
       // transition: all 0.8s ease-in-out;
@@ -81,23 +73,27 @@
 
   .comedianDivBack {
     // == card__side--back   &Back
-    background-color: green;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #7d7d7d 0%, #5a5a5a 100%);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+    color: #ffe4c4;
     transform: rotateY(180deg);
   }
 }
 .genresDiv {
   text-align: center;
-  padding: 32px;
-  margin-bottom: 22px;
+  padding: 0 22px 0;
+  margin-bottom: 42px;
   font-weight: 600;
 }
 
 .intro {
   text-align: center;
+  margin-bottom: 12px;
 }
 .span {
-  color: rgb(175, 46, 64);
-  font-weight: 700;
+  color: beige;
+  font-weight: 600;
   &::before {
     content: ' 😯 ';
   }
@@ -128,14 +124,22 @@
   }
 }
 .buyOneNow {
-  color: rgb(236, 228, 14);
-  background-color: chocolate;
-  padding: 8px;
-  border-radius: 18px;
-  width: 165px;
+  font-size: 16px;
+  color: rgb(215, 215, 182);
+  display: inline-block;
+  border-bottom: 1px solid #333333;
+  padding: 4px;
+  transition: all 0.3s;
+  border-radius: 6px;
 
-  // &:hover {
-  // }
+  &:hover {
+    background: beige;
+    color: #5a5a5a;
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0.4rem 0.4rem 0.6rem rgba(147, 146, 146, 0.795);
+  }
 }
 
 // background-image: linear-gradient(45deg, bisque 0%, rgb(219, 176, 125) 100%);

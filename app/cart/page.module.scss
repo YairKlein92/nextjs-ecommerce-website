@@ -4,11 +4,7 @@
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1.5px;
-  background-image: linear-gradient(
-    60deg,
-    rgb(90, 174, 174) 0%,
-    rgb(95, 244, 244) 100%
-  );
+  background-image: linear-gradient(135deg, #4e4e4e 0%, #868585 100%);
   background-clip: text;
   color: transparent;
   transition: all 0.3s;
@@ -25,8 +21,29 @@
 }
 .cartDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  height: 200px;
-  border: 2px dashed grey;
+}
+.buttons {
+  display: inline-block;
+  width: 50%;
+  margin: 6px;
+  background-color: transparent;
+  font-size: 16px;
+  color: #333333;
+  border: none; // deletes the button's default border
+  border-bottom: 1px solid #333333;
+  padding: 4px;
+  transition: all 0.3s;
+
+  &:hover {
+    background: #333333;
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0.5rem 0.5rem 0.5rem #c2c2c2;
+    transform: translateY(0); // click effect
+  }
 }
