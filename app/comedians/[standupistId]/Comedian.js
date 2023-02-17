@@ -177,7 +177,9 @@ export default function Comedian(props) {
         </div>{' '}
         {/* text end */}
       </div>
-      <YoutubeVideo />
+      <div className={styles.youtubeVideo}>
+        <YoutubeVideo />
+      </div>
     </>
   );
 }

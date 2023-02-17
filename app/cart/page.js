@@ -40,7 +40,7 @@ export default async function Cart() {
   return (
     <>
       <div className={styles.centerText}>
-        <h2 className={styles.heading}>Cart</h2>
+        <h2 className={styles.heading}>Check the shelf one last time</h2>
       </div>
       <main className={styles.mainDiv}>
         {ticketsInCart.map((comedian) => {
@@ -113,7 +113,7 @@ export default async function Cart() {
           );
         })}
       </main>
-      <div className={styles.heading}>Summary</div>
+      <div className={styles.heading}>Your cart</div>
       <div className={styles.cartDiv}>
         {ticketsInCart.map((comedian) => {
           return comedian.ticketAmount > 0 ? (
@@ -127,11 +127,15 @@ export default async function Cart() {
             ''
           );
         })}
-        <div>Sum: ${finalSum}</div>
+        <div className={styles.sum}>Sum: ${finalSum}</div>
       </div>{' '}
-      <a href="/cart/checkout">
-        <button>Checkout</button>
-      </a>
+      <div>
+        <a href="/cart/checkout">
+          <button className={`${styles.buttons} ${styles.checkoutButton}`}>
+            Checkout
+          </button>
+        </a>
+      </div>
     </>
   );
 }

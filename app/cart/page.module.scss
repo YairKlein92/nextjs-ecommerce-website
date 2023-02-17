@@ -8,10 +8,6 @@
   background-clip: text;
   color: transparent;
   transition: all 0.3s;
-  &:hover {
-    transform: skewY(1deg) skewX(2.5deg) scale(1.05);
-    text-shadow: 1rem 1rem 2rem black;
-  }
 }
 
 .mainDiv {
@@ -24,6 +20,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 .buttons {
   display: inline-block;
@@ -46,4 +43,11 @@
     box-shadow: 0.5rem 0.5rem 0.5rem #c2c2c2;
     transform: translateY(0); // click effect
   }
+}
+.sum {
+  font-weight: 700;
+}
+.checkoutButton {
+  width: 250px;
+  margin-left: 45%;
 }

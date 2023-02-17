@@ -64,7 +64,9 @@ export default async function ComediansPage() {
                   className={`${styles.comedianDiv} ${styles.comedianDivBack}`}
                 >
                   <div className={styles.purchaseDiv}>
-                    <span>Tickets from {comedian.ticketPriceMin}</span>
+                    <span>
+                      Tickets for ${Math.floor(comedian.ticketPriceMin)}
+                    </span>
                     <div className={styles.genresDiv}>
                       If you like:
                       <br /> {comedian.genres}
