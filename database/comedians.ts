@@ -1,5 +1,4 @@
 import { cache } from 'react';
-import { StringMappingType } from 'typescript';
 import { sql } from './connect';
 
 // export const comedians1 = [

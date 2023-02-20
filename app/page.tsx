@@ -4,6 +4,9 @@ import ari from '../public/Ari.webp';
 import iliza from '../public/Iliza.webp';
 import styles from './page.module.scss';
 
+export const metadata = {
+  description: 'Home page',
+};
 export default function HomePage() {
   return (
     <main className={styles.mainDiv}>

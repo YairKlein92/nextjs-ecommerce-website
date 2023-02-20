@@ -1,15 +1,19 @@
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import { getComedians } from '../../database/comedians';
-import styles from '../comedians/page.module.scss';
+import styles from '../cart/page.module.scss';
+import Button from './button';
 
-export default async function ComediansPage() {
+type CookieParsed = {
+  id: number;
+  ticketAmount: number;
+}[];
+export default async function Cart() {
   const comedians = await getComedians(); // it is an asynchronous function
   const cookie = cookies().get('ticketCookie'); // you can check the exact name in the cookies in the browser
-  let cookieParsed = [];
+  let cookieParsed: CookieParsed = [];
   if (cookie) {
     cookieParsed = JSON.parse(cookie.value);
-    console.log(cookieParsed);
   }
 
   const ticketsInCart = comedians.map((comedian) => {
@@ -26,10 +30,22 @@ export default async function ComediansPage() {
     }
     return ticketInCart;
   });
+
+  // creating a sum array for storing the prices
+  type ListOfNumbers = number[];
+  const sum: ListOfNumbers = [];
+  // adding the amounts to the array
+  ticketsInCart.map((comedian) => {
+    sum.push(Number(comedian.ticketPriceMin) * Number(comedian.ticketAmount));
+    // console.log(sum);
+    return sum;
+  });
+  // adding the prices to get the final price of all the tickets
+  const finalSum = sum.reduce((acc, curr) => acc + curr, 0);
   return (
     <>
       <div className={styles.centerText}>
-        <h2 className={styles.heading}>Upcoming events</h2>
+        <h2 className={styles.heading}>Check the shelf one last time</h2>
       </div>
       <main className={styles.mainDiv}>
         {ticketsInCart.map((comedian) => {
@@ -46,34 +62,26 @@ export default async function ComediansPage() {
                   <Image
                     src={`/${comedian.firstName}.webp`}
                     alt={comedian.lastName}
-                    width="156"
-                    height="111"
+                    width="224"
+                    height="160"
                   />
-                  {/* </Link> */}
 
                   <div className={styles.intro}>
                     <p>"{comedian.lastSpecial}" world tour</p>
-                    <div className={styles.span}>09.01.2023 - 04.04.2023</div>
-                    <div className={styles.span}> ONLY in Vienna</div>
-                    <span className={styles.span}>
-                      Tickets:{comedian.ticketAmount}
-                    </span>
+
+                    <div className={styles.span}>
+                      Tickets in your cart:{' '}
+                      <span data-test-id={`ticket-number-id-${comedian.id}`}>
+                        {comedian.ticketAmount}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div
                   className={`${styles.comedianDiv} ${styles.comedianDivBack}`}
                 >
                   <div className={styles.purchaseDiv}>
-                    <span>
-                      Tickets for ${Math.floor(comedian.ticketPriceMin)}
-                    </span>
-                    <div className={styles.genresDiv}>
-                      If you like:
-                      <br /> {comedian.genres}
-                    </div>
-                    <a href={`/comedians/${comedian.id}`}>
-                      <span className={styles.buyOneNow}>Buy one now!</span>
-                    </a>
+                    <span>Tickets for ${Number(comedian.ticketPriceMin)}</span>
                   </div>
                   <div className={styles.icons}>
                     <a href="/cart">
@@ -110,6 +118,29 @@ export default async function ComediansPage() {
           );
         })}
       </main>
+      <div className={styles.heading}>Your cart</div>
+      <div className={styles.cartDiv}>
+        {ticketsInCart.map((comedian) => {
+          return comedian.ticketAmount > 0 ? (
+            <div key={comedian.id}>
+              {comedian.ticketAmount} ticket/s for{' '}
+              <span>{comedian.lastSpecial}</span> - $
+              {Number(comedian.ticketAmount) * Number(comedian.ticketPriceMin)}
+              <Button comedian={comedian} cookieParsed={cookieParsed} />
+            </div>
+          ) : (
+            ''
+          );
+        })}
+        <div className={styles.sum}>Sum: ${finalSum}</div>
+      </div>{' '}
+      <div>
+        <a href="/cart/checkout">
+          <button className={`${styles.buttons} ${styles.checkoutButton}`}>
+            Checkout
+          </button>
+        </a>
+      </div>
     </>
   );
 }

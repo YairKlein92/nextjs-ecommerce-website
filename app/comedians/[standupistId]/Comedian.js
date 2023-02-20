@@ -6,6 +6,26 @@ import YouTube from 'react-youtube';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 import styles from '../[standupistId]/page.module.scss';
 
+// type Standupist = {
+//   age: string;
+//   description?: string;
+//   eventNumber: string;
+//   firstName: string;
+//   genres: string;
+//   id: number;
+//   lastName: string;
+//   lastSpecial: string;
+//   link: string;
+//   nationality: string;
+//   podcast?: string;
+//   ticketPriceMin: string;
+// };
+
+// type Props = {
+//   params: {
+//     standupistId: string;
+//   };
+// };
 export class YoutubeVideo extends React.Component {
   render() {
     const opts = {
@@ -29,6 +49,7 @@ export class YoutubeVideo extends React.Component {
 }
 
 export default function Comedian(props) {
+  console.log(props);
   const router = useRouter();
   const [count, setCount] = useState(1);
   return (
