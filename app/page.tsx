@@ -4,9 +4,24 @@ import ari from '../public/Ari.webp';
 import iliza from '../public/Iliza.webp';
 import styles from './page.module.scss';
 
-export const metadata = {
-  description: 'Home page',
+export const dynamic = 'force-dynamic';
+type MetaData = {
+  title: {
+    default: string;
+  };
+  icons: {
+    shortcut: string;
+  };
 };
+export const metadata: MetaData = {
+  title: {
+    default: 'Vienna Comedy Club',
+  },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+};
+
 export default function HomePage() {
   return (
     <main className={styles.mainDiv}>

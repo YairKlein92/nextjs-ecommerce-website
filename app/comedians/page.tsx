@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { getComedians } from '../../database/comedians';
 import styles from '../comedians/page.module.scss';
 
+export const dynamic = 'force-dynamic';
+
 type MetaData = {
   title: string;
 

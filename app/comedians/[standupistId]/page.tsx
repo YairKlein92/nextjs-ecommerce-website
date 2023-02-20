@@ -4,6 +4,8 @@ import { getComedian } from '../../../database/comedians';
 import { comedianNotFoundMetadata } from '../not-found';
 import Comedian from './Comedian';
 
+export const dynamic = 'force-dynamic';
+
 type Props = {
   params: {
     standupistId: string;

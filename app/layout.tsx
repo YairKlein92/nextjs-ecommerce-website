@@ -16,23 +16,6 @@ type CookieParsed = {
   ticketAmount: number;
 }[];
 
-type MetaData = {
-  title: {
-    default: string;
-  };
-  icons: {
-    shortcut: string;
-  };
-};
-
-export const metadata: MetaData = {
-  title: {
-    default: 'Vienna Comedy Club',
-  },
-  icons: {
-    shortcut: '/favicon.ico',
-  },
-};
 export default async function RootLayout(props: Props) {
   // {
   //   children,

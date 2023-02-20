@@ -1,5 +1,22 @@
 import styles from '../checkout/page.module.scss';
 
+type MetaData = {
+  title: {
+    default: string;
+  };
+  icons: {
+    shortcut: string;
+  };
+};
+export const metadata: MetaData = {
+  title: {
+    default: 'Checkout Page',
+  },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+};
+export const dynamic = 'force-dynamic';
 export default function CheckoutPage() {
   // The form should prevent submission with any of the above fields being empty
   // The Confirm Order button needs to have the HTML attribute data-test-id="checkout-confirm-order"

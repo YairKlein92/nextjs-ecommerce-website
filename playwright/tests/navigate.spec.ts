@@ -1,9 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-// E2E: Checkout flow
-// Unit: Test functions for adding and removing info from cookie
-// Unit: Test function for updating quantity in item of cookie (eg. adding an item to the cart that already exists)
-// Unit: Test cart sum function
 // Set up GitHub Actions to automatically test your code
 
 test('cart test', async ({ page }) => {
@@ -20,6 +16,31 @@ test('cart test', async ({ page }) => {
   // Checkout flow
   await page.getByRole('button', { name: 'Checkout' }).click();
   await expect(page).toHaveURL('http://localhost:3000/cart/checkout');
+  await expect(
+    page.locator('[data-test-id="checkout-first-name"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('[data-test-id="checkout-last-name"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('[data-test-id="checkout-checkout-email"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('[data-test-id="checkout-checkout-city"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('[data-test-id="checkout-postal-code"]'),
+  ).toBeVisible();
+  await expect(page.locator('[data-test-id="checkout-country"]')).toBeVisible();
+  await expect(
+    page.locator('[data-test-id="checkout-credit-card"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('[data-test-id="checkout-expiration-date"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('[data-test-id="checkout-security-code"]'),
+  ).toBeVisible();
 
   // Thank you
   await page.getByRole('button', { name: 'Confirm Order' }).click();

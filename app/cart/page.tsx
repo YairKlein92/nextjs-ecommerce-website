@@ -4,6 +4,23 @@ import { getComedians } from '../../database/comedians';
 import styles from '../cart/page.module.scss';
 import Button from './button';
 
+type MetaData = {
+  title: {
+    default: string;
+  };
+  icons: {
+    shortcut: string;
+  };
+};
+export const metadata: MetaData = {
+  title: {
+    default: 'Cart',
+  },
+  icons: {
+    shortcut: '/favicon.ico',
+  },
+};
+export const dynamic = 'force-dynamic';
 type CookieParsed = {
   id: number;
   ticketAmount: number;
