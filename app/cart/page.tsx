@@ -67,13 +67,13 @@ export default async function Cart() {
       <main className={styles.mainDiv}>
         {ticketsInCart.map((comedian) => {
           return (
-            <div className={styles.mainDiv} key={comedian.id}>
+            <div className={styles.mainDiv} key={`comedian-${comedian.id}`}>
               <div className={styles.comedianDivCard}>
                 <div
                   className={`${styles.comedianDiv} ${styles.comedianDivFront}`}
                 >
                   {/* <Link href={`/comedians/${comedian.id}`}> */}
-                  <h3 key={comedian.id}>
+                  <h3 key={`comedian-${comedian.id}`}>
                     {comedian.firstName} {comedian.lastName}
                   </h3>
                   <Image
@@ -139,7 +139,7 @@ export default async function Cart() {
       <div className={styles.cartDiv}>
         {ticketsInCart.map((comedian) => {
           return comedian.ticketAmount > 0 ? (
-            <div key={comedian.id}>
+            <div key={`comedian-${comedian.id}`}>
               {comedian.ticketAmount} ticket/s for{' '}
               <span>{comedian.lastSpecial}</span> - $
               {Number(comedian.ticketAmount) * Number(comedian.ticketPriceMin)}

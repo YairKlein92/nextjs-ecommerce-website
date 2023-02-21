@@ -55,13 +55,13 @@ export default async function ComediansPage() {
       <main className={styles.mainDiv}>
         {ticketsInCart.map((comedian) => {
           return (
-            <div className={styles.mainDiv} key={comedian.id}>
+            <div className={styles.mainDiv} key={`comedian-${comedian.id}`}>
               <div className={styles.comedianDivCard}>
                 <div
                   className={`${styles.comedianDiv} ${styles.comedianDivFront}`}
                 >
                   {/* <Link href={`/comedians/${comedian.id}`}> */}
-                  <h3 key={comedian.id}>
+                  <h3 key={`comedian-${comedian.id}`}>
                     {comedian.firstName} {comedian.lastName}
                   </h3>
                   <Image
